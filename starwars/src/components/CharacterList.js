@@ -2,6 +2,16 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import GetCharacters from './GetCharacters';
 import CharacterCard from './Charactercard';
+import styled from 'styled-components';
+
+const CharList = styled.div`
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 5rem;
+    `;
+
 
 
 function CharacterList () {
@@ -18,7 +28,7 @@ function CharacterList () {
         })
     
     },[pageNum])
-    .catch(error => console.error(error));
+    
 
 
 return (
@@ -27,7 +37,7 @@ return (
             pageNum={pageNum}
             setPageNum={setPageNum}
         />
-        <div>
+        <CharList>
             {people.map(item=>{
                 return(
                     <CharacterCard
@@ -40,7 +50,7 @@ return (
                     />
                 )
             })}
-        </div>
+        </CharList>
     </div>
 )
 
