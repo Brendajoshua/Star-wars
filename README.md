@@ -26,13 +26,36 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+React JS is a front end library that solves issues around DOM manipulation, memory management, reusability, testing, and more. The core problem that React does extremely well is couple JS and HTMl into reusable components that make inserting components into the DOM very fast. React also uses a virtual DOM that is recreated every time state changes and then compares it to the current DOM in order to update only the parts of the DOM that need updating to reduce memory usage and increase efficiency of the browser.
+
+This is best encapsulated with the useEffect hook in our most recent NASA project. With a few lines of code, we could create a reusable "card" representing the photo and it's associated information and then render that to the page. If we wanted to also update that information with a date picker for instance, the only item that gets re-rendered is the card based on the new fetched data. Ultimately this makes building single-page applications REALLY easy.
+
+
 - [ ] What does it mean to _think_ in react?
+
+Thinking in React means to think in components. Usually I follow the following checklist based on a design file.
+
+How many components will I need?
+Which components need to pass data to each other?
+Which components will be siblings and parents to each other?
+How customizable does each component need to be?
+Can I use a library that's already built out most of the functionality of the component I'm trying to build
 
 - [ ] Describe state.
 
+State is an object that represents the "data" that you want to have at a given moment. In the case of React state is an object of "memory" that a component can use in order to update itself or child components.
+
 - [ ] Describe props.
 
+Props are pieces of data that are passed to a component in order to customize the component that props are passed to. This can include state, objects, strings, functions, or even other components, basically any type of data. You can think of props like "propogation", because I want a particular piece of code to propogate downward and be consumed by a child or grandchild.
+
+There are reserved props like "className" in React, but for the most part, you can create any "prop" and then pass that to a component and consume that prop with props.propName
+
 - [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+A side effect is anything that affects something outside the scope of the function being executed. Fetching data from an API, timers, logging, and manually manipulating the DOM are all examples of side effects.
+We use useEffect() hood to sync effects in a React component to state or prop change
+
 
 ## Project Set Up
 
